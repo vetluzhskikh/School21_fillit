@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   solve.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 19:06:40 by gnelson           #+#    #+#             */
-/*   Updated: 2020/01/24 20:05:29 by nyaacc           ###   ########.fr       */
+/*   Created: 2019/12/06 21:07:38 by gnelson           #+#    #+#             */
+/*   Updated: 2020/01/24 21:09:10 by nyaacc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef SOLVE_H
+# define SOLVE_H
+# include "read.h"
+# include "tetrimino.h"
+# include "square.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	size_t			i;
-	unsigned char	*access_src;
-	unsigned char	*edit_dest;
+void	print_usage_msg(const char *prog_name);
+int		solve(const char *filename);
+int		get_next_point(t_point **point, char **square);
+int		solve_a_square(t_square *square, t_list **block);
 
-	i = 0;
-	access_src = (unsigned char*)src;
-	edit_dest = (unsigned char*)dest;
-	while (i < n)
-	{
-		edit_dest[i] = access_src[i];
-		i++;
-	}
-	return (dest);
-}
-
+#endif

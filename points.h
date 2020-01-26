@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   points.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 19:06:40 by gnelson           #+#    #+#             */
-/*   Updated: 2020/01/24 20:05:29 by nyaacc           ###   ########.fr       */
+/*   Created: 2019/12/05 10:25:07 by gnelson           #+#    #+#             */
+/*   Updated: 2020/01/24 21:08:24 by nyaacc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef POINTS_H
+# define POINTS_H
+# include <string.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+typedef struct	s_point
 {
-	size_t			i;
-	unsigned char	*access_src;
-	unsigned char	*edit_dest;
-
-	i = 0;
-	access_src = (unsigned char*)src;
-	edit_dest = (unsigned char*)dest;
-	while (i < n)
-	{
-		edit_dest[i] = access_src[i];
-		i++;
-	}
-	return (dest);
-}
-
+	int			x;
+	int			y;
+}				t_point;
+t_point			*create_point(int len);
+t_point			*create_point_fromxy(int x, int y);
+void			free_point(t_point **point);
+void			free_minmax_points(t_point ***points);
+#endif

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 19:06:40 by gnelson           #+#    #+#             */
-/*   Updated: 2020/01/24 20:05:29 by nyaacc           ###   ########.fr       */
+/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
+/*   Updated: 2020/01/24 21:07:33 by nyaacc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "solve.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	print_usage_msg(const char *prog_name)
 {
-	size_t			i;
-	unsigned char	*access_src;
-	unsigned char	*edit_dest;
-
-	i = 0;
-	access_src = (unsigned char*)src;
-	edit_dest = (unsigned char*)dest;
-	while (i < n)
-	{
-		edit_dest[i] = access_src[i];
-		i++;
-	}
-	return (dest);
+	ft_putstr_fd("usage: ", STDERR_FILENO);
+	ft_putstr_fd(prog_name, STDERR_FILENO);
+	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
 }
 
+int		main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		print_usage_msg(argv[0]);
+		return (1);
+	}
+	if (!solve(argv[1]))
+		write(1, "error\n", 6);
+	return (0);
+}

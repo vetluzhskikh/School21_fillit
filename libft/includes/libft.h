@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:35:12 by gnelson           #+#    #+#             */
-/*   Updated: 2019/10/08 22:29:18 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/01/24 16:12:36 by nyaacc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_swapptr(void *ptr1, void *ptr2);
+void				ft_strcre(char *str, char ch1, char ch2);
+void				ft_putstrarr(char **strarr);
 
 #endif

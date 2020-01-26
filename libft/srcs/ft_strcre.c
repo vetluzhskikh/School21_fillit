@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcre.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/23 22:00:40 by nyaacc            #+#    #+#             */
-/*   Updated: 2019/12/01 17:16:23 by gnelson          ###   ########.fr       */
+/*   Created: 2019/11/10 21:10:46 by gnelson           #+#    #+#             */
+/*   Updated: 2020/01/24 16:10:27 by nyaacc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 500
-# include "libft.h"
+void	ft_strcre(char *str, char ch1, char ch2)
+{
+	unsigned char *ptr;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	ptr = (unsigned char *)str;
+	while (*ptr)
+	{
+		if (*ptr == ch1)
+			*ptr = ch2;
+		ptr++;
+	}
+	if (*ptr == ch1)
+		*ptr = ch2;
+}

@@ -63,17 +63,18 @@ C_FILES = 	ft_memset.c \
 			ft_lstiter.c \
 			ft_strnlen.c \
 			ft_swapptr.c \
-			get_next_line.c \
+			ft_putstrarr.c \
+			ft_strcre.c \
 
 O_FILES = $(patsubst %.c,%.o,$(C_FILES))
 FLAGS = -Wall -Wextra -Werror
 INC = includes
-#SRC = $(addprefix ./srcs/, $(C_FILES))
 VPATH = includes srcs
 
 $(NAME): $(O_FILES)
 	@ar rc $(NAME) $(O_FILES)
 	@ranlib $(NAME)
+
 
 %.o: %.c
 	@gcc $(FLAGS) -I$(INC) -c $<

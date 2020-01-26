@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   read.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 19:06:40 by gnelson           #+#    #+#             */
-/*   Updated: 2020/01/24 20:05:29 by nyaacc           ###   ########.fr       */
+/*   Created: 2019/12/06 13:24:35 by gnelson           #+#    #+#             */
+/*   Updated: 2020/01/24 21:08:44 by nyaacc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef READ_H
+# define READ_H
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# define TETRI_SIZE 20
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	size_t			i;
-	unsigned char	*access_src;
-	unsigned char	*edit_dest;
-
-	i = 0;
-	access_src = (unsigned char*)src;
-	edit_dest = (unsigned char*)dest;
-	while (i < n)
-	{
-		edit_dest[i] = access_src[i];
-		i++;
-	}
-	return (dest);
-}
-
+t_list		*get_tetriminoes_from_file(const char *filename);
+#endif
