@@ -6,17 +6,12 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:36:41 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 16:05:36 by vdanilo          ###   ########.fr       */
-/*   Updated: 2020/02/16 16:00:36 by vdanilo          ###   ########.fr       */
+/*   Updated: 2020/02/16 20:52:37 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "square.h"
-
-/*
-** Создаем строку. инициализируем "."
-*/
 
 static char	**make_square_str(size_t size)
 {
@@ -41,10 +36,6 @@ static char	**make_square_str(size_t size)
 	return (square);
 }
 
-/*
-** -_-
-*/
-
 void		free_square(t_square **square)
 {
 	size_t row;
@@ -60,10 +51,6 @@ void		free_square(t_square **square)
 	*square = NULL;
 }
 
-/*
-** Замена строки "что было" на "что нужно"
-*/
-
 void		update_square(t_square **square, char **rows)
 {
 	size_t row;
@@ -73,10 +60,6 @@ void		update_square(t_square **square, char **rows)
 		ft_strdel(&((*square)->rows[row++]));
 	(*square)->rows = rows;
 }
-
-/*
-** Создает нашу таблицу
-*/
 
 t_square	*create_square(size_t size)
 {

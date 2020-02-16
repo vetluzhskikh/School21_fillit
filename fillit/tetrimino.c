@@ -6,7 +6,7 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 10:55:20 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 16:02:37 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/16 20:57:58 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #include "points.h"
 #include "tetrimino.h"
 
-/*
-** Проверка проверка каждого "блока"на валидность + ведение значений
-** по обеим условиям
-*/
 static int	validate_block(const char *shape, int len, int *sides)
 {
 	int x;
@@ -42,34 +38,29 @@ static int	validate_block(const char *shape, int len, int *sides)
 	return (curr_sides ? 1 : 0);
 }
 
-/*
-** Нихера не понятно, но очень интересно. Почитать про условия ?:.
-** Что то типа "готовим" данные для создания нужной тетрамины
-*/
-
-static void	set_minmax_points(t_point ***points, int *max_x,
-								int blocks, int len)
-{
-	(*max_x) = (int)(len % 5) > *max_x ? (int)(len % 5) : *max_x;
-	if (blocks == 0 || blocks == 3)
-		(*points)[blocks == 0 ? 0 : 1] = create_point(len);
-	else if ((int)(len % 5) < (*points)[0]->x)
-		(*points)[0]->x = len % 5;
-}
-
 static int	invalid_block(t_point ***points)
 {
 	free_minmax_points(points);
 	return (0);
 }
 
-/*
-** Проверка на корректность тетрамины. Принцыпы: Идем по нашей тетрамине
-** (строке)если находим - проваливаемся в проверку блока. Если условия:
-** 1. у блока хотя бы 1 сосед блок (мы считаем количество соприкосновений)
-** 2. Количество соприкосновений всегда = 6 или 8
-** в итоге выполняются - тетрамина наша.
-*/
+static int	set_minmax_points(t_point ***points, int *max_x,
+								int blocks, int len)
+{
+	(*max_x) = (int)(len % 5) > *max_x ? (int)(len % 5) : *max_x;
+	if (blocks == 0 || blocks == 3)
+	{
+		if (!((*points)[blocks == 0 ? 0 : 1] = create_point(len)))
+			return (0);
+		return (1);
+	}
+	else if ((int)(len % 5) < (*points)[0]->x)
+	{
+		(*points)[0]->x = len % 5;
+		return (1);
+	}
+	return (1);
+}
 
 int			validate_tetrimino(const char *shape, t_point ***points)
 {

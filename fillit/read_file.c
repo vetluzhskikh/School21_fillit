@@ -6,18 +6,13 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 10:42:53 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 17:58:48 by vdanilo          ###   ########.fr       */
+/*   Updated: 2020/02/16 20:50:37 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "read.h"
 #include "tetrimino.h"
-
-/*
-** Проверка на корректность \n в строках (первый while) и на промежуточный (между 
-** тетраминами \n или \0)
-*/
 
 int		validate_newlines(char *tetrimino_str, int *ends_in_newline)
 {
@@ -39,23 +34,12 @@ int		validate_newlines(char *tetrimino_str, int *ends_in_newline)
 	return (0);
 }
 
-/*
-** Проверка на мин/макс количество тетрамин
-*/
-
 int		check_tetrimino_count(int count)
 {
 	if (count > 26 || count < 0)
 		return (-1);
 	return (0);
 }
-
-/*
-** Поочередное чтение (по 1 тетрамине), проверка и добавление в лист тетрамин
-** Ведение счетчика тетрамин для простановки нужных букв при формировании листа
-** Все функции библиотечные или местные (из этого сишника) кромне строки 74.
-** Провались в lst_utilites.c
-*/
 
 t_list	*read_tetriminoes(int fd)
 {
@@ -83,10 +67,6 @@ t_list	*read_tetriminoes(int fd)
 		return (NULL);
 	return (head);
 }
-
-/*
-** Запускатор всего от чтения файла до возвращения готового листа с тетраминами
-*/
 
 t_list	*get_tetriminoes_from_file(const char *filename)
 {

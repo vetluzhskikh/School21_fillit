@@ -1,10 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst_utilites.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/16 20:48:45 by gnelson           #+#    #+#             */
+/*   Updated: 2020/02/16 20:48:53 by gnelson          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "tetrimino.h"
-
-/*
-** Создаем новый лист под наш тетрис. Провались в tetri_utilites.c
-*/
 
 t_list	*lstnew_tetri(const char *str, char fill)
 {
@@ -14,27 +21,16 @@ t_list	*lstnew_tetri(const char *str, char fill)
 	if (!(tetri = create_tetrimino(str, fill)))
 		return (NULL);
 	if (!(new = ft_lstnew((void *)tetri, sizeof(*tetri))))
-	{
-		free_tetrimino(&tetri);
 		return (NULL);
-	}
 	free(tetri);
 	return (new);
 }
-
-/*
-** Чистим лист
-*/
 
 void	lstdel_tetri(void *content, size_t content_size)
 {
 	(void)content_size;
 	free_tetrimino((t_tetri **)&content);
 }
-
-/*
-** Добавляем новую тетрамину к листу привязывая к ней нужную букву
-*/
 
 int		lstadd_tetri(t_list **head, t_list **tail, char *t_str, int t_count)
 {

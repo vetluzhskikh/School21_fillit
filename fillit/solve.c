@@ -6,7 +6,7 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:40:38 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 18:18:27 by vdanilo          ###   ########.fr       */
+/*   Updated: 2020/02/16 21:02:45 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int	solve_a_square(t_square *square, t_list **block, t_point *p_start)
 	if (!block || !*block)
 		return (1);
 	while ((!(found = check_tetrimino_fits((t_tetri *)(*block)->content,
-			square, p_start)) && get_next_point(&p_start, square->rows)))
-		;
+		square, p_start)) && get_next_point(&p_start, square->rows)));
 	if (!found)
 		return (0);
 	place_a_tetrimino((t_tetri *)(*block)->content, square, p_start);

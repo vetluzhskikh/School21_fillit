@@ -1,10 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tetri_utilites.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/16 20:54:17 by gnelson           #+#    #+#             */
+/*   Updated: 2020/02/16 20:55:41 by gnelson          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "tetrimino.h"
-
-/*
-** 
-*/
+#include "points.h"
 
 static void	fill_tetrimino(const char *raw_shape, const char fill, t_tetri *new)
 {
@@ -22,10 +30,6 @@ static void	fill_tetrimino(const char *raw_shape, const char fill, t_tetri *new)
 	}
 }
 
-/*
-** Воздушные замки
-*/
-
 char		**create_tetrimno_shape(int height, int width)
 {
 	char	**shape;
@@ -40,6 +44,7 @@ char		**create_tetrimno_shape(int height, int width)
 			{
 				while (--row)
 					ft_strdel(&shape[row]);
+				free(shape);
 				return (NULL);
 			}
 			ft_memset(shape[row++], EMPTY, width);
@@ -67,11 +72,6 @@ void		free_tetrimino(t_tetri **tetri)
 	*tetri = NULL;
 }
 
-/*
-** Приходит строка после чтения - выходит двумерная тетрамина.
-** А посредине жопонька
-*/
-
 t_tetri		*create_tetrimino(const char *raw_shape, const char fill)
 {
 	t_tetri *tetri;
@@ -94,6 +94,7 @@ t_tetri		*create_tetrimino(const char *raw_shape, const char fill)
 			return (NULL);
 		fill_tetrimino(raw_shape, fill, tetri);
 	}
+	free(points[1]);
 	free(points);
 	return (tetri);
 }

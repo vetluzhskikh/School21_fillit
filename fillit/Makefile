@@ -6,7 +6,7 @@
 #    By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 15:57:46 by nyaacc            #+#    #+#              #
-#    Updated: 2020/02/16 15:42:41 by gnelson          ###   ########.fr        #
+#    Updated: 2020/02/16 20:30:11 by gnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ CS =	main.c \
 		solve.c \
 		lst_utilites.c \
 		tetri_utilites.c
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
+CFLAGS =
 LIB_OPT = -L../libft/ -lft
 OBJS = $(patsubst %.c, %.o, $(CS))
 OPTION1 = -I. -I../libft/includes
