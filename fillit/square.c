@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   square.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:36:41 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 15:37:03 by vdanilo          ###   ########.fr       */
+/*   Updated: 2020/02/16 16:02:37 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/includes/libft.h"
 #include "square.h"
 
 /*

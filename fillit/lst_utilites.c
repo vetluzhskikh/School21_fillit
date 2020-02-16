@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/includes/libft.h"
 #include "tetrimino.h"
 
 /*
