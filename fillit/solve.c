@@ -6,7 +6,7 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:40:38 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 16:02:37 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/16 17:08:10 by vdanilo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	get_next_point(t_point **point, char **square)
 int	solve_a_square(t_square *square, t_list **block, t_point *p_start)
 {
 	int found;
+	t_point *p_next;
 
 	found = 0;
 	if (!block || !*block)
@@ -48,7 +49,8 @@ int	solve_a_square(t_square *square, t_list **block, t_point *p_start)
 	if (!found)
 		return (0);
 	place_a_tetrimino((t_tetri *)(*block)->content, square, p_start);
-	if (!solve_a_square(square, &((*block)->next), create_point(0)))
+	p_next = create_point(0);
+	if (!solve_a_square(square, &((*block)->next), p_next))
 	{
 		remove_a_tetrimino((t_tetri *)(*block)->content, square);
 		if (!get_next_point(&p_start, square->rows))
@@ -57,8 +59,10 @@ int	solve_a_square(t_square *square, t_list **block, t_point *p_start)
 			p_start->y = 0;
 			return (0);
 		}
+		free(p_next);
 		return (solve_a_square(square, block, p_start));
 	}
+	free(p_next);
 	return (1);
 }
 
@@ -98,5 +102,6 @@ int	solve(const char *filename)
 		return (0);
 	if (!solve_squares(&tetri_lst))
 		return (0);
+	free_tetrilist(tetri_lst);
 	return (1);
 }

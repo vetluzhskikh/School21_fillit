@@ -40,4 +40,5 @@ int				lstadd_tetri(t_list **head, t_list **tail, char *t_str,
 int				check_tetrimino_fits(t_tetri *tetrimino, t_square *square,
 									t_point *point);
 t_tetri			*create_tetrimino(const char *raw_shape, const char fill);
+void	free_tetrilist(t_list *tetris);
 #endif
