@@ -6,7 +6,7 @@
 /*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:36:41 by gnelson           #+#    #+#             */
-/*   Updated: 2020/01/24 22:50:22 by nyaacc           ###   ########.fr       */
+/*   Updated: 2020/02/16 15:37:03 by vdanilo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		free_square(t_square **square)
 		return ;
 	row = 0;
 	while (row < (*square)->size)
-		ft_strdel(&((*square)->rows[row++]));
+		ft_memdel((void **)&((*square)->rows[row++]));
 	free((*square)->rows);
 	(*square)->rows = NULL;
 	free(*square);
