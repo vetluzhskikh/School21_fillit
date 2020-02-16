@@ -86,6 +86,7 @@ int	solve_squares(t_list **tetri_lst)
 	ft_putstrarr(square->rows);
 	free_square(&square);
 	free(square);
+	free(p_start);
 	return (1);
 }
 
