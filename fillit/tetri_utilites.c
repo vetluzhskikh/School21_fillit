@@ -80,7 +80,10 @@ t_tetri		*create_tetrimino(const char *raw_shape, const char fill)
 	if (!raw_shape || !(points = (t_point **)ft_memalloc(sizeof(*points) * 2)))
 		return (NULL);
 	if (!validate_tetrimino(raw_shape, &points))
+	{
+		free(points);
 		return (NULL);
+	}
 	if ((tetri = (t_tetri *)ft_memalloc(sizeof(*tetri))))
 	{
 		tetri->height = ((points[1])->y - (points[0])->y) + 1;
@@ -91,5 +94,6 @@ t_tetri		*create_tetrimino(const char *raw_shape, const char fill)
 			return (NULL);
 		fill_tetrimino(raw_shape, fill, tetri);
 	}
+	free(points);
 	return (tetri);
 }

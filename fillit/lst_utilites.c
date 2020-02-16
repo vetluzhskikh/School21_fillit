@@ -18,6 +18,7 @@ t_list	*lstnew_tetri(const char *str, char fill)
 		free_tetrimino(&tetri);
 		return (NULL);
 	}
+	free(tetri);
 	return (new);
 }
 
