@@ -67,17 +67,6 @@ void		free_tetrimino(t_tetri **tetri)
 	*tetri = NULL;
 }
 
-void free_tetrilist(t_list *tetris)
-{
-	t_list *tmp;
-
-	while(tetris)
-	{
-		tmp = tetris;
-		tetris=tetris->next;
-		free(tetris);
-	}
-}
 /*
 ** Приходит строка после чтения - выходит двумерная тетрамина.
 ** А посредине жопонька

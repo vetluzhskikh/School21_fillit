@@ -6,7 +6,7 @@
 /*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 10:29:46 by gnelson           #+#    #+#             */
-/*   Updated: 2020/01/24 21:10:04 by nyaacc           ###   ########.fr       */
+/*   Updated: 2020/02/16 16:39:22 by vdanilo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,4 @@ int				lstadd_tetri(t_list **head, t_list **tail, char *t_str,
 int				check_tetrimino_fits(t_tetri *tetrimino, t_square *square,
 									t_point *point);
 t_tetri			*create_tetrimino(const char *raw_shape, const char fill);
-void	free_tetrilist(t_list *tetris);
 #endif

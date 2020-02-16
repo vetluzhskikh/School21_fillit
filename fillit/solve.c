@@ -6,7 +6,7 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:40:38 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 17:08:10 by vdanilo          ###   ########.fr       */
+/*   Updated: 2020/02/16 17:40:18 by vdanilo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,6 @@ int	solve(const char *filename)
 		return (0);
 	if (!solve_squares(&tetri_lst))
 		return (0);
-	free_tetrilist(tetri_lst);
+	ft_lstdel(&tetri_lst, &lstdel_tetri);
 	return (1);
 }
