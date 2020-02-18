@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
+/*   Created: 2019/09/15 20:13:57 by gnelson           #+#    #+#             */
+/*   Updated: 2019/09/18 21:16:47 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/includes/libft.h"
-#include "../includes/solve.h"
+#include "libft.h"
 
-void	print_usage_msg(const char *prog_name)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	ft_putstr_fd("usage: ", STDERR_FILENO);
-	ft_putstr_fd(prog_name, STDERR_FILENO);
-	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
-}
+	char			*ns;
+	unsigned int	i;
 
-int		main(int argc, char **argv)
-{
-	if (argc != 2)
+	ns = NULL;
+	i = 0;
+	if (s)
 	{
-		print_usage_msg(argv[0]);
-		return (1);
+		if (ft_strlen(s) == __SIZE_T_MAXI__)
+			return (NULL);
+		ns = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
+		if (ns)
+		{
+			while (s[i] != '\0')
+			{
+				ns[i] = f(i, s[i]);
+				i++;
+			}
+			ns[i] = '\0';
+		}
 	}
-	if (!solve(argv[1]))
-		write(1, "error\n", 6);
-	return (0);
+	return (ns);
 }

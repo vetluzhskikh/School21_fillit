@@ -6,13 +6,13 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 20:54:17 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 20:55:41 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
-#include "tetrimino.h"
-#include "points.h"
+#include "../includes/libft/includes/libft.h"
+#include "../includes/tetrimino.h"
+#include "../includes/points.h"
 
 static void	fill_tetrimino(const char *raw_shape, const char fill, t_tetri *new)
 {

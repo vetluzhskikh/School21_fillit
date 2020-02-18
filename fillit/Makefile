@@ -6,7 +6,7 @@
 #    By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 15:57:46 by nyaacc            #+#    #+#              #
-#    Updated: 2020/02/16 20:30:11 by gnelson          ###   ########.fr        #
+#    Updated: 2020/02/18 20:53:55 by gnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,23 +23,26 @@ CS =	main.c \
 		solve.c \
 		lst_utilites.c \
 		tetri_utilites.c
-# CFLAGS = -Wall -Wextra -Werror
-CFLAGS =
-LIB_OPT = -L../libft/ -lft
+CFLAGS = -Wall -Wextra -Werror
+LIB_OPT = -L./includes/libft/ -lft
 OBJS = $(patsubst %.c, %.o, $(CS))
-OPTION1 = -I. -I../libft/includes
+OPTION1 = -I./includes -I./includes/libft/includes
+VPATH = includes:src
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(OPTION1) -c $(CS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIB_OPT) -g -o $(NAME)
+	@make -C includes/libft re
+	@$(CC) $(CFLAGS) $(OPTION1) -c $(CS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB_OPT) -o $(NAME)
 
 clean:
 	@rm -f $(OBJS)
+	@make -C includes/libft clean
 
 fclean: clean
 	@rm -f .$(LIB_NAME) $(NAME)
+	@make -C includes/libft fclean
 
 re: fclean all
 

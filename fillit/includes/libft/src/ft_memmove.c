@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
+/*   Created: 2019/09/06 22:29:51 by gnelson           #+#    #+#             */
+/*   Updated: 2019/09/22 14:23:33 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/includes/libft.h"
-#include "../includes/solve.h"
+#include "libft.h"
 
-void	print_usage_msg(const char *prog_name)
+void	*ft_memmove(void *dest, const void *src, size_t size)
 {
-	ft_putstr_fd("usage: ", STDERR_FILENO);
-	ft_putstr_fd(prog_name, STDERR_FILENO);
-	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
-}
+	size_t	i;
 
-int		main(int argc, char **argv)
-{
-	if (argc != 2)
+	i = 0;
+	if (dest == src)
+		return (dest);
+	if ((unsigned char*)dest <= (unsigned char*)src)
 	{
-		print_usage_msg(argv[0]);
-		return (1);
+		while (i < size)
+		{
+			((unsigned char*)dest)[i] = ((unsigned char*)src)[i];
+			i++;
+		}
 	}
-	if (!solve(argv[1]))
-		write(1, "error\n", 6);
-	return (0);
+	else
+	{
+		while (size > 0)
+		{
+			--size;
+			((unsigned char*)dest)[size] = ((unsigned char*)src)[size];
+		}
+	}
+	return (dest);
 }

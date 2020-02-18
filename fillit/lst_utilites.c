@@ -6,12 +6,12 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 20:48:45 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 20:48:53 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
-#include "tetrimino.h"
+#include "../includes/libft/includes/libft.h"
+#include "../includes/tetrimino.h"
 
 t_list	*lstnew_tetri(const char *str, char fill)
 {

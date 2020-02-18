@@ -6,13 +6,13 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 10:55:20 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 20:57:58 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
-#include "points.h"
-#include "tetrimino.h"
+#include "../includes/libft/includes/libft.h"
+#include "../includes/points.h"
+#include "../includes/tetrimino.h"
 
 static int	validate_block(const char *shape, int len, int *sides)
 {

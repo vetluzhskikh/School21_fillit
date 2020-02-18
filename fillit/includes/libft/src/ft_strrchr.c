@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
+/*   Created: 2019/09/10 19:34:40 by gnelson           #+#    #+#             */
+/*   Updated: 2019/09/21 14:15:06 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/includes/libft.h"
-#include "../includes/solve.h"
+#include "libft.h"
+#include <stdio.h>
 
-void	print_usage_msg(const char *prog_name)
+char	*ft_strrchr(const char *s, int c)
 {
-	ft_putstr_fd("usage: ", STDERR_FILENO);
-	ft_putstr_fd(prog_name, STDERR_FILENO);
-	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
-}
+	size_t		i;
 
-int		main(int argc, char **argv)
-{
-	if (argc != 2)
+	i = 0;
+	i = ft_strlen(s);
+	if (c == '\0')
+		return ((char*)(&s[i]));
+	while (i + 1 > 0)
 	{
-		print_usage_msg(argv[0]);
-		return (1);
+		if (s[i] == c)
+			return ((char*)(&s[i]));
+		--i;
 	}
-	if (!solve(argv[1]))
-		write(1, "error\n", 6);
-	return (0);
+	return (NULL);
 }

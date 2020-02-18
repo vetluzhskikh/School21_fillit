@@ -6,12 +6,12 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:36:41 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 20:52:37 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
-#include "square.h"
+#include "../includes/libft/includes/libft.h"
+#include "../includes/square.h"
 
 static char	**make_square_str(size_t size)
 {

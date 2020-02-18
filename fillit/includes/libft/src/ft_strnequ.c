@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
+/*   Created: 2019/09/15 20:23:38 by gnelson           #+#    #+#             */
+/*   Updated: 2019/09/15 20:24:48 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/includes/libft.h"
-#include "../includes/solve.h"
+#include "libft.h"
 
-void	print_usage_msg(const char *prog_name)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	ft_putstr_fd("usage: ", STDERR_FILENO);
-	ft_putstr_fd(prog_name, STDERR_FILENO);
-	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
-}
-
-int		main(int argc, char **argv)
-{
-	if (argc != 2)
+	if (s1 && s2)
 	{
-		print_usage_msg(argv[0]);
-		return (1);
+		if (ft_strncmp(s1, s2, n) == 0)
+			return (1);
 	}
-	if (!solve(argv[1]))
-		write(1, "error\n", 6);
 	return (0);
 }

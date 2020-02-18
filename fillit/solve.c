@@ -6,15 +6,15 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:40:38 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 19:54:26 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
-#include "points.h"
-#include "read.h"
-#include "square.h"
-#include "tetrimino.h"
+#include "../includes/libft/includes/libft.h"
+#include "../includes/points.h"
+#include "../includes/read.h"
+#include "../includes/square.h"
+#include "../includes/tetrimino.h"
 
 int				get_next_point(t_point **point, char **square)
 {
@@ -35,10 +35,10 @@ int				get_next_point(t_point **point, char **square)
 	return (0);
 }
 
-static int		if_get_next_point(t_point *p_start)
+static int		if_get_next_point(t_point **p_start)
 {
-	p_start->x = 0;
-	p_start->y = 0;
+	(*p_start)->x = 0;
+	(*p_start)->y = 0;
 	return (0);
 }
 

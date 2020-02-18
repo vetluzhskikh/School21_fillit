@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
+/*   Created: 2019/09/10 19:47:25 by gnelson           #+#    #+#             */
+/*   Updated: 2019/09/10 20:16:35 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/includes/libft.h"
-#include "../includes/solve.h"
+#include "libft.h"
 
-void	print_usage_msg(const char *prog_name)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	ft_putstr_fd("usage: ", STDERR_FILENO);
-	ft_putstr_fd(prog_name, STDERR_FILENO);
-	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
-}
+	size_t	lneedle;
 
-int		main(int argc, char **argv)
-{
-	if (argc != 2)
+	lneedle = ft_strlen(needle);
+	if (!needle || *needle == '\0')
+		return ((char*)haystack);
+	while (*(haystack) != '\0')
 	{
-		print_usage_msg(argv[0]);
-		return (1);
+		if (ft_memcmp(haystack, needle, lneedle) == 0)
+			return ((char*)haystack);
+		haystack++;
 	}
-	if (!solve(argv[1]))
-		write(1, "error\n", 6);
-	return (0);
+	return (NULL);
 }

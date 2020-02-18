@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
+/*   Created: 2019/09/10 21:37:38 by gnelson           #+#    #+#             */
+/*   Updated: 2019/09/21 17:17:21 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/includes/libft.h"
-#include "../includes/solve.h"
+#include "libft.h"
 
-void	print_usage_msg(const char *prog_name)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	ft_putstr_fd("usage: ", STDERR_FILENO);
-	ft_putstr_fd(prog_name, STDERR_FILENO);
-	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
-}
+	size_t	i;
 
-int		main(int argc, char **argv)
-{
-	if (argc != 2)
+	i = 0;
+	if ((!s1 && !s2) || n == 0)
+		return (0);
+	while (*s1 != '\0' && i < n - 1)
 	{
-		print_usage_msg(argv[0]);
-		return (1);
+		if (*((unsigned char*)s1) != *((unsigned char*)s2))
+			return (*((unsigned char*)s1) - *((unsigned char*)s2));
+		s1++;
+		s2++;
+		i++;
 	}
-	if (!solve(argv[1]))
-		write(1, "error\n", 6);
+	if (*((unsigned char*)s1) != *((unsigned char*)s2))
+		return (*((unsigned char*)s1) - *((unsigned char*)s2));
 	return (0);
 }

@@ -6,12 +6,12 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 10:24:32 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 20:50:02 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
-#include "points.h"
+#include "../includes/libft/includes/libft.h"
+#include "../includes/points.h"
 
 t_point		*create_point(int len)
 {
