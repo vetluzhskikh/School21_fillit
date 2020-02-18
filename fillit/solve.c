@@ -6,7 +6,7 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:40:38 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/16 21:02:45 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/18 19:54:26 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "square.h"
 #include "tetrimino.h"
 
-int	get_next_point(t_point **point, char **square)
+int				get_next_point(t_point **point, char **square)
 {
 	if (!square)
 		return (0);
@@ -35,16 +35,25 @@ int	get_next_point(t_point **point, char **square)
 	return (0);
 }
 
-int	solve_a_square(t_square *square, t_list **block, t_point *p_start)
+static int		if_get_next_point(t_point *p_start)
 {
-	int found;
-	t_point *p_next;
+	p_start->x = 0;
+	p_start->y = 0;
+	return (0);
+}
+
+int				solve_a_square(t_square *square, t_list **block,
+			t_point *p_start)
+{
+	int			found;
+	t_point		*p_next;
 
 	found = 0;
 	if (!block || !*block)
 		return (1);
 	while ((!(found = check_tetrimino_fits((t_tetri *)(*block)->content,
-		square, p_start)) && get_next_point(&p_start, square->rows)));
+			square, p_start)) && get_next_point(&p_start, square->rows)))
+		;
 	if (!found)
 		return (0);
 	place_a_tetrimino((t_tetri *)(*block)->content, square, p_start);
@@ -53,11 +62,7 @@ int	solve_a_square(t_square *square, t_list **block, t_point *p_start)
 	{
 		remove_a_tetrimino((t_tetri *)(*block)->content, square);
 		if (!get_next_point(&p_start, square->rows))
-		{
-			p_start->x = 0;
-			p_start->y = 0;
-			return (0);
-		}
+			return (if_get_next_point(&p_start));
 		free(p_next);
 		return (solve_a_square(square, block, p_start));
 	}
@@ -65,7 +70,7 @@ int	solve_a_square(t_square *square, t_list **block, t_point *p_start)
 	return (1);
 }
 
-int	solve_squares(t_list **tetri_lst)
+int				solve_squares(t_list **tetri_lst)
 {
 	t_square	*square;
 	t_point		*p_start;
@@ -93,7 +98,7 @@ int	solve_squares(t_list **tetri_lst)
 	return (1);
 }
 
-int	solve(const char *filename)
+int				solve(const char *filename)
 {
 	t_list		*tetri_lst;
 
