@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/15 17:58:14 by gnelson           #+#    #+#             */
-/*   Updated: 2019/09/18 17:37:50 by gnelson          ###   ########.fr       */
+/*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
+/*   Updated: 2020/02/19 20:46:16 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./includes/fillit.h"
 
-int		ft_isalnum(int c)
+void	print_usage_msg(const char *prog_name)
 {
-	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
+	ft_putstr_fd("usage: ", STDERR_FILENO);
+	ft_putstr_fd(prog_name, STDERR_FILENO);
+	ft_putstr_fd(" [input_file]\n", STDERR_FILENO);
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		print_usage_msg(argv[0]);
 		return (1);
+	}
+	if (!solve(argv[1]))
+		write(1, "error\n", 6);
 	return (0);
 }

@@ -6,19 +6,11 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:21:09 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/18 20:45:06 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/19 20:46:20 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/includes/libft.h"
-#include "../includes/points.h"
-#include "../includes/tetrimino.h"
-#include "../includes/square.h"
-
-/*
-** Check if tetrimino's first characters are empty, and return an amount to
-** shift the tetrimino by in the x direction.
-*/
+#include "./includes/fillit.h"
 
 int		tetrimino_xshift(t_tetri *tetri)
 {
@@ -32,12 +24,6 @@ int		tetrimino_xshift(t_tetri *tetri)
 	return (x_shift);
 }
 
-/*
-** The function check_tetrimino_max() checks if a tetrimino's size will
-** overflow a board. Returns 1 if all is good, or 0 if the tetrimino's
-** attempted coordinates are outside the board.
-*/
-
 int		check_tetrimino_max(t_tetri *tetrimino, t_square *square,
 							t_point *point)
 {
@@ -47,12 +33,6 @@ int		check_tetrimino_max(t_tetri *tetrimino, t_square *square,
 		return (1);
 	return (0);
 }
-
-/*
-** The function check_tetrimino_fits() checks if a tetrimino will fit in a
-** grid at a given point. If the tetrimino does not fit, the function
-** returns NULL.
-*/
 
 int		check_tetrimino_fits(t_tetri *tetrimino, t_square *square,
 							t_point *point)
@@ -83,12 +63,6 @@ int		check_tetrimino_fits(t_tetri *tetrimino, t_square *square,
 	return (1);
 }
 
-/*
-** The function place_a_tetrimino() draws a tetrimino on a square board,
-** aligning the top left corner of the tetrimino with the point specified.
-** The tetrimino is drawn in the character specified (eg. AAAA).
-*/
-
 void	place_a_tetrimino(t_tetri *tetrimino, t_square *square,
 							t_point *point)
 {
@@ -117,10 +91,6 @@ void	place_a_tetrimino(t_tetri *tetrimino, t_square *square,
 	tetrimino->start->x = (point->x) - tetrimino_xshift(tetrimino);
 	tetrimino->start->y = point->y;
 }
-
-/*
-** The function remove_a_tetrimino() removes a tetrimino from the board
-*/
 
 void	remove_a_tetrimino(t_tetri *tetrimino, t_square *square)
 {
