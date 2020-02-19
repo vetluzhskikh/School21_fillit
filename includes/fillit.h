@@ -6,7 +6,7 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 10:29:46 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/19 20:50:48 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/19 21:02:16 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # define EMPTY '.'
 # define NEWLINE '\n'
 # define TETRI_SIZE 20
-# include <string.h>
-# include <sys/types.h>
-# include <sys/stat.h>
 # include <fcntl.h>
 # include "./libft/includes/libft.h"
 
