@@ -6,11 +6,11 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 20:54:17 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/19 20:46:43 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:45:47 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fillit.h"
+#include "fillit.h"
 
 static void	fill_tetrimino(const char *raw_shape, const char fill, t_tetri *new)
 {

@@ -6,11 +6,11 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 15:47:02 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/19 20:46:16 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:45:47 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fillit.h"
+#include "fillit.h"
 
 void	print_usage_msg(const char *prog_name)
 {

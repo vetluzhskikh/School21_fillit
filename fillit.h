@@ -6,7 +6,7 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 10:29:46 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/19 21:02:16 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:44:20 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define NEWLINE '\n'
 # define TETRI_SIZE 20
 # include <fcntl.h>
-# include "./libft/includes/libft.h"
+# include "libft/libft.h"
 
 typedef struct	s_point
 {
@@ -54,7 +54,7 @@ void			lstdel_tetri(void *content, size_t content_size);
 void			free_tetrimino(t_tetri **tetri);
 int				validate_tetrimino(const char *shape, t_point ***points);
 int				lstadd_tetri(t_list **head, t_list **tail, char *t_str,
-							int t_count);
+								int t_count);
 int				check_tetrimino_fits(t_tetri *tetrimino, t_square *square,
 									t_point *point);
 t_tetri			*create_tetrimino(const char *raw_shape, const char fill);
@@ -63,6 +63,6 @@ void			print_usage_msg(const char *prog_name);
 int				solve(const char *filename);
 int				get_next_point(t_point **point, char **square);
 int				solve_a_square(t_square *square, t_list **block,
-			t_point *p_start);
+								t_point *p_start);
 
 #endif

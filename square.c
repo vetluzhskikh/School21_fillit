@@ -6,11 +6,11 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:36:41 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/19 20:46:36 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:45:47 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fillit.h"
+#include "fillit.h"
 
 static char	**make_square_str(size_t size)
 {

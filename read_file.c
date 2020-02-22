@@ -6,11 +6,11 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 10:42:53 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/19 20:46:28 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:45:47 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fillit.h"
+#include "fillit.h"
 
 int		validate_newlines(char *tetrimino_str, int *ends_in_newline)
 {

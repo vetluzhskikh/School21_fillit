@@ -6,7 +6,7 @@
 #    By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 15:57:46 by nyaacc            #+#    #+#              #
-#    Updated: 2020/02/18 20:53:55 by gnelson          ###   ########.fr        #
+#    Updated: 2020/02/22 17:46:29 by gnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIB_OPT = -L./includes/libft/ -lft
 OBJS = $(patsubst %.c, %.o, $(CS))
 OPTION1 = -I./includes -I./includes/libft/includes
-VPATH = includes:src
+VPATH = includes
 
 all: $(NAME)
 

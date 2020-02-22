@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nyaacc <nyaacc@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:35:12 by gnelson           #+#    #+#             */
-/*   Updated: 2020/01/24 16:12:36 by nyaacc           ###   ########.fr       */
+/*   Updated: 2020/02/22 12:17:34 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # define __INT_ITOA__ 999999999
 # define __SIZE_T_MAXI__ 18446744073709551615UL
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 typedef struct		s_list

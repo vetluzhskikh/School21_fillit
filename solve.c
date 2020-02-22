@@ -6,11 +6,11 @@
 /*   By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:40:38 by gnelson           #+#    #+#             */
-/*   Updated: 2020/02/19 20:49:26 by gnelson          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:45:47 by gnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fillit.h"
+#include "fillit.h"
 
 int				get_next_point(t_point **point, char **square)
 {
