@@ -6,7 +6,7 @@
 #    By: gnelson <gnelson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 15:57:46 by nyaacc            #+#    #+#              #
-#    Updated: 2020/02/22 17:46:29 by gnelson          ###   ########.fr        #
+#    Updated: 2020/02/22 18:11:06 by gnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ CS =	main.c \
 CFLAGS = -Wall -Wextra -Werror
 LIB_OPT = -L./includes/libft/ -lft
 OBJS = $(patsubst %.c, %.o, $(CS))
-OPTION1 = -I./includes -I./includes/libft/includes
-VPATH = includes
+OPTION1 = -I./includes -I./includes/libft
+VPATH = includes/libft includes
 
 all: $(NAME)
 
